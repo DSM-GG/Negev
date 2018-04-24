@@ -15,6 +15,7 @@ public class LoadMenu : Menu<LoadMenu>
 
     protected override void Awake()
     {
+        base.Awake();
         ExitButton.onClick.AddListener(() =>
         {
             this.OnBackPressed();
@@ -32,7 +33,7 @@ public class LoadMenu : Menu<LoadMenu>
 
                 LoadButton.onClick.AddListener(() =>
                 {
-                    GameManager.Instance.SendMessage("ChangeScene", 1);
+                    GameManager.Instance.SendMessage("ChangeScene", "GameMenu");
                 });
             });
 

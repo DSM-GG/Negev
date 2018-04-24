@@ -12,6 +12,7 @@ public class PlayerMenu : Menu<PlayerMenu> {
 
     protected override void Awake()
     {
+        base.Awake();
         SystemButton.onClick.AddListener(() => {
             SystemMenu.Open();
         });
@@ -20,6 +21,6 @@ public class PlayerMenu : Menu<PlayerMenu> {
     public override void OnBackPressed()
     {
         //메인메뉴로 나가기 전 질문 후 나가기 +
-        GameManager.Instance.SendMessage("ChangeScene", int.Parse("0"));
+        GameManager.Instance.SendMessage("ChangeScene", "MainMenu");
     }
 }

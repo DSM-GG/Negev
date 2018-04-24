@@ -10,12 +10,13 @@ public class NewGameMenu : Menu<NewGameMenu>
 
     protected override void Awake()
     {
+        base.Awake();
         CreateButton.onClick.AddListener(() => {
             string player_name = nameInput.text;
             GameManager.Instance.SendMessage("SaveData", player_name);
 
             GameManager.Instance.SetCurrentPlayer(player_name);
-            GameManager.Instance.SendMessage("ChangeScene", 1);
+            GameManager.Instance.SendMessage("ChangeScene", "GameMenu");
         });
     }
 

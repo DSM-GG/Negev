@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -475,7 +475,7 @@ GameObject:
   - component: {fileID: 827669282}
   - component: {fileID: 827669280}
   - component: {fileID: 827669281}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -565,7 +565,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cube: {fileID: 827669275}
   mode: 0
-  camera: {fileID: 341340961}
+  playerCamera: {fileID: 0}
 --- !u!54 &827669281
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class MainMenu : Menu<MainMenu>
 
     protected override void Awake()
     {
+        base.Awake();
         NewGameButton.onClick.AddListener(() => {
             NewGameMenu.Open();
         });
