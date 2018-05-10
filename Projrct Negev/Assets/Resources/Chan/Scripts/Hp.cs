@@ -62,6 +62,7 @@ public class Hp : MonoBehaviour {
                 p_sh -= Max_sh * 0.25f;
                 Debug.Log("Shield = " + p_sh);
             }
+
             Destroy(col.gameObject);
         }
     }
