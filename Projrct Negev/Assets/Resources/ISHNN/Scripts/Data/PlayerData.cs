@@ -6,6 +6,9 @@ public enum Force : int { Mi = 0, Cr, Ki};
 
 [System.Serializable]
 public class PlayerData {
+    //getset과 함께 접근을 제한하는게 좋을까
+
+
     //정보조회시 확인할 수 있는 데이터
     public Rank rank;
     public string player_name;
@@ -18,8 +21,8 @@ public class PlayerData {
     public float[] reliabilitys;
 
     //그 이외의 데이터
-    GearInventory inventory;
-    List<Mail> mailBox;
+    public GearInventory inventory;
+    public List<Mail> mailBox;
 
     public PlayerData(string p_name)
     {
@@ -42,20 +45,10 @@ public class PlayerData {
     }
 
     [System.Serializable]
-    struct GearInventory
+    public struct GearInventory
     {
         ManualWeapon weapon_Primary;
         AutoWeapon weapon_Auto;
         Barrier barrier;
-    }
-
-    [System.Serializable]
-    public struct Mail
-    {
-        string Received;
-        string From;
-        string To;
-        string Subject;
-        string Content;
     }
 }

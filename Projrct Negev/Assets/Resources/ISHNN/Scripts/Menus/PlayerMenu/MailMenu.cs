@@ -10,7 +10,12 @@ public class MailMenu : Menu<MailMenu> {
 
     protected override void Awake()
     {
-        base.Awake();
+        foreach (Mail m in DataManager.Current_Player.mailBox)
+        {
+            Button mail = Instantiate(MailPrefeb, MailLayout.transform);
+            Text mailText = mail.GetComponentInChildren<Text>();
+            mailText.text = string.Format("{0} : {1}",m.From, m.Subject);
+        }
     }
 
     public override void OnBackPressed()

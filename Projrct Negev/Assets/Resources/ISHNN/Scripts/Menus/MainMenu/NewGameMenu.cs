@@ -13,9 +13,12 @@ public class NewGameMenu : Menu<NewGameMenu>
         base.Awake();
         CreateButton.onClick.AddListener(() => {
             string player_name = nameInput.text;
-            GameManager.Instance.SendMessage("SaveData", player_name);
 
+            DataManager.Instance.CreateData(player_name);
             DataManager.Instance.LoadData(player_name);
+
+            DataManager.Instance.LoadMail("G");
+
             GameManager.Instance.SendMessage("ChangeScene", "GameMenu");
         });
     }

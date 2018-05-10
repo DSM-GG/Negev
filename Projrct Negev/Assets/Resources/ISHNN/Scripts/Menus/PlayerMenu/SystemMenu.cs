@@ -16,8 +16,8 @@ public class SystemMenu : Menu<SystemMenu>
         ProfileInfo.text = DataManager.Instance.LoadCurrentPlayerInfo();
 
         SaveButton.onClick.AddListener(() => {
-            //세이브 구현필요
-            Debug.Log("Save구현필요.");
+            DataManager.Instance.SaveData();
+            DataManager.Instance.LoadMail("Sample");
         });
         LoadlButton.onClick.AddListener(() => {
             LoadMenu.Open();

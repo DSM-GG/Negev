@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
 using UnityEngine;
 
 public class DataManager : MonoBehaviour {
@@ -11,7 +12,12 @@ public class DataManager : MonoBehaviour {
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+            Instance = this;
+        else if (Instance != this)
+            Destroy(gameObject);
+
+        DontDestroyOnLoad(this.gameObject);
     }
 
     //현재 이용중인 플레이어 데이터
@@ -55,27 +61,40 @@ public class DataManager : MonoBehaviour {
         stream.Close();
     }
 
-    //Current_Player 를 {player_name}.data 파일에 저장한다.
-    public void SaveData(string player_name)
+    //Current_Player 를 {Current_Player . player_name}.data 파일에 저장한다.
+    public void SaveData()
     {
-        FileStream stream = new FileStream(string.Format("{0}/{1}.data", Application.persistentDataPath, player_name), FileMode.Create);
+        FileStream stream = new FileStream(string.Format("{0}/{1}.data", Application.persistentDataPath, Current_Player.player_name), FileMode.Create);
         PlayerData data = Current_Player;
 
         BinaryFormatter bf = new BinaryFormatter();
         bf.Serialize(stream, data);
 
-        Debug.Log(string.Format("{0}/{1}.data 저장", Application.persistentDataPath, player_name));
+        Debug.Log(string.Format("저장 : {0}/{1}.data", Application.persistentDataPath, Current_Player.player_name));
         stream.Close();
     }
 
     //{player_name}.data 를 불러와 Current_Player 에 대입한다.
     public void LoadData(string player_name)
     {
-        BinaryFormatter bf = new BinaryFormatter();
         FileStream stream = File.Open(string.Format("{0}/{1}.data", Application.persistentDataPath, player_name), FileMode.Open);
 
+        BinaryFormatter bf = new BinaryFormatter();
         Current_Player = (PlayerData)bf.Deserialize(stream);
 
         stream.Close();
+    }
+
+    //메일 인덱스로 사전에 등록된 메일을 Current_Player에 추가한다.
+    //지금은 txt 형태를 참조.
+    public void LoadMail(string mail_index)
+    {
+        FileStream stream = File.Open(string.Format("{0}/{1}.txt", Application.dataPath + "/Resources/Texts/Mails/", mail_index), FileMode.Open);
+        StreamReader sr = new StreamReader(stream, Encoding.Default);
+        string[] maildata = sr.ReadToEnd().Split('/');
+        stream.Close();
+
+        Mail mail = new Mail(maildata[0], Current_Player.player_name ,maildata[1], maildata[2]);
+        Current_Player.mailBox.Add(mail);
     }
 }
