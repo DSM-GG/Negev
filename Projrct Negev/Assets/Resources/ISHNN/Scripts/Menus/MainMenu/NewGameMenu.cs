@@ -18,6 +18,7 @@ public class NewGameMenu : Menu<NewGameMenu>
             DataManager.Instance.LoadData(player_name);
 
             DataManager.Instance.LoadMail("G");
+            DataManager.Instance.SaveData();
 
             GameManager.Instance.SendMessage("ChangeScene", "GameMenu");
         });

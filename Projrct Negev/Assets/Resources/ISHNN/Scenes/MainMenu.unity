@@ -535,7 +535,9 @@ MonoBehaviour:
     type: 2}
   GearInvenMenuprefab: {fileID: 114790480291597484, guid: 81596b95963e94141aa14eaaf5d3dc60,
     type: 2}
-  MailMenuprefab: {fileID: 114891803509883126, guid: 846f8c13402d95a4a94b7eafc2e9e228,
+  MailListMenuprefab: {fileID: 114891803509883126, guid: 846f8c13402d95a4a94b7eafc2e9e228,
+    type: 2}
+  MailMenuprefab: {fileID: 114608405580589308, guid: 0e35587124179e040b5ab41556f053da,
     type: 2}
   SystemMenuprefab: {fileID: 114120719099661420, guid: 1cc8be0320e2fca40a57582a1e981cfa,
     type: 2}

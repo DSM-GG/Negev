@@ -17,7 +17,7 @@ public class PlayerMenu : Menu<PlayerMenu> {
             GearInvenMenu.Open();
         });
         MailButton.onClick.AddListener(() => {
-            MailMenu.Open();
+            MailListMenu.Open();
         });
         SystemButton.onClick.AddListener(() => {
             SystemMenu.Open();

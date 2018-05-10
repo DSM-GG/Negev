@@ -16,6 +16,7 @@ public class MenuManager : MonoBehaviour {
     //Game
     public PlayerMenu PlayerMenuprefab;
     public GearInvenMenu GearInvenMenuprefab;
+    public MailListMenu MailListMenuprefab;
     public MailMenu MailMenuprefab;
     public SystemMenu SystemMenuprefab;
 
@@ -78,20 +79,23 @@ public class MenuManager : MonoBehaviour {
         else if (typeof(T) == typeof(LoadMenu))
             return LoadMenuprefab as T;
 
-        else if(typeof(T) == typeof(NewGameMenu))
+        else if (typeof(T) == typeof(NewGameMenu))
             return NewGameMenuprefab as T;
 
         //Game
-        else if(typeof(T) == typeof(PlayerMenu))
+        else if (typeof(T) == typeof(PlayerMenu))
             return PlayerMenuprefab as T;
 
-        else if(typeof(T) == typeof(GearInvenMenu))
+        else if (typeof(T) == typeof(GearInvenMenu))
             return GearInvenMenuprefab as T;
 
-        else if(typeof(T) == typeof(MailMenu))
+        else if (typeof(T) == typeof(MailListMenu))
+            return MailListMenuprefab as T;
+
+        else if (typeof(T) == typeof(MailMenu))
             return MailMenuprefab as T;
 
-        else if(typeof(T) == typeof(SystemMenu))
+        else if (typeof(T) == typeof(SystemMenu))
             return SystemMenuprefab as T;
 
         //타입이 prefab에 없는거면 Excpetion 반환

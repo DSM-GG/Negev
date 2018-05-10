@@ -4,18 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class MailMenu : Menu<MailMenu> {
-
-    public GameObject MailLayout;
-    public Button MailPrefeb;
+    public Text From;
+    public Text To;
+    public Text Title;
+    public Text Content;
 
     protected override void Awake()
     {
-        foreach (Mail m in DataManager.Current_Player.mailBox)
-        {
-            Button mail = Instantiate(MailPrefeb, MailLayout.transform);
-            Text mailText = mail.GetComponentInChildren<Text>();
-            mailText.text = string.Format("{0} : {1}",m.From, m.Subject);
-        }
+        base.Awake();
+    }
+
+    public void SetMail(Mail mail)
+    {
+        From.text = mail.From;
+        To.text = mail.To;
+        Title.text = mail.Title;
+        Content.text = mail.Content;
     }
 
     public override void OnBackPressed()
