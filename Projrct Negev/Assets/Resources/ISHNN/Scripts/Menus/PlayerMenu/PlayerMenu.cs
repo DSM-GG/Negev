@@ -13,6 +13,12 @@ public class PlayerMenu : Menu<PlayerMenu> {
     protected override void Awake()
     {
         base.Awake();
+        GearButton.onClick.AddListener(() => {
+            GearInvenMenu.Open();
+        });
+        MailButton.onClick.AddListener(() => {
+            MailMenu.Open();
+        });
         SystemButton.onClick.AddListener(() => {
             SystemMenu.Open();
         });

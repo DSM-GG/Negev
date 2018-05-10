@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 
 public enum Rank : int { A = 0, B, C, D, E};
 public enum Force : int { Mi = 0, Cr, Ki};
 
-[Serializable]
+[System.Serializable]
 public class PlayerData {
     //정보조회시 확인할 수 있는 데이터
     public Rank rank;
@@ -20,6 +19,7 @@ public class PlayerData {
 
     //그 이외의 데이터
     GearInventory inventory;
+    List<Mail> mailBox;
 
     public PlayerData(string p_name)
     {
@@ -38,13 +38,24 @@ public class PlayerData {
         }
 
         inventory = new GearInventory();
+        mailBox = new List<Mail>();
     }
 
-    [Serializable]
+    [System.Serializable]
     struct GearInventory
     {
         ManualWeapon weapon_Primary;
         AutoWeapon weapon_Auto;
         Barrier barrier;
+    }
+
+    [System.Serializable]
+    public struct Mail
+    {
+        string Received;
+        string From;
+        string To;
+        string Subject;
+        string Content;
     }
 }

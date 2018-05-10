@@ -21,15 +21,15 @@ public class LoadMenu : Menu<LoadMenu>
             this.OnBackPressed();
         });
 
-        List<string> playerList = GameManager.Instance.GetPlayerSaves();
-        //이름 리스트 받고 그 이름으로 다시 로드
+        List<string> playerList = DataManager.Instance.GetPlayerSaves();
+        //     #      로직수정필요. //이름 리스트 받고 그 이름으로 다시 로드
         foreach (string name in playerList)
         {
             Button profile = Instantiate(ProfilePrefeb, ProfileLayout.transform);
             profile.name = string.Format("Profile:{0}", name);
             profile.onClick.AddListener(() => {
-                GameManager.Instance.SetCurrentPlayer(name);
-                ProfileInfo.text = GameManager.Instance.LoadCurrentPlayerInfo();
+                DataManager.Instance.LoadData(name);
+                ProfileInfo.text = DataManager.Instance.LoadCurrentPlayerInfo();
 
                 LoadButton.onClick.AddListener(() =>
                 {

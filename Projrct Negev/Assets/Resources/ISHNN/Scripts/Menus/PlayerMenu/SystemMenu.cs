@@ -13,7 +13,7 @@ public class SystemMenu : Menu<SystemMenu>
     protected override void Awake()
     {
         base.Awake();
-        ProfileInfo.text = GameManager.Instance.LoadCurrentPlayerInfo();
+        ProfileInfo.text = DataManager.Instance.LoadCurrentPlayerInfo();
 
         SaveButton.onClick.AddListener(() => {
             //세이브 구현필요

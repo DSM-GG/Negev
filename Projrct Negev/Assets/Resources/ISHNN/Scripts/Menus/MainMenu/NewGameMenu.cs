@@ -15,7 +15,7 @@ public class NewGameMenu : Menu<NewGameMenu>
             string player_name = nameInput.text;
             GameManager.Instance.SendMessage("SaveData", player_name);
 
-            GameManager.Instance.SetCurrentPlayer(player_name);
+            DataManager.Instance.LoadData(player_name);
             GameManager.Instance.SendMessage("ChangeScene", "GameMenu");
         });
     }

@@ -538,15 +538,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mode: 1
-  MainMenuPrefeb: {fileID: 114055014487625080, guid: dc2b3df596612a44090f1944f4901444,
+  MainMenuprefab: {fileID: 114055014487625080, guid: dc2b3df596612a44090f1944f4901444,
     type: 2}
-  LoadMenuPrefeb: {fileID: 114599078004829650, guid: f5175c2d461358d4eb3890c6c5a4802b,
+  LoadMenuprefab: {fileID: 114599078004829650, guid: f5175c2d461358d4eb3890c6c5a4802b,
     type: 2}
-  NewGameMenuPrefeb: {fileID: 114206967471494494, guid: 0a7ac537e0eaa1c4391acd968c928323,
+  NewGameMenuprefab: {fileID: 114206967471494494, guid: 0a7ac537e0eaa1c4391acd968c928323,
     type: 2}
-  PlayerMenuPrefeb: {fileID: 114260312865708130, guid: 7acf3bec1d2a70243aaa0a6a15f1e7ac,
+  PlayerMenuprefab: {fileID: 114260312865708130, guid: 7acf3bec1d2a70243aaa0a6a15f1e7ac,
     type: 2}
-  SystemMenuPrefeb: {fileID: 114120719099661420, guid: 1cc8be0320e2fca40a57582a1e981cfa,
+  GearInvenMenuprefab: {fileID: 114790480291597484, guid: 81596b95963e94141aa14eaaf5d3dc60,
+    type: 2}
+  MailMenuprefab: {fileID: 114891803509883126, guid: 846f8c13402d95a4a94b7eafc2e9e228,
+    type: 2}
+  SystemMenuprefab: {fileID: 114120719099661420, guid: 1cc8be0320e2fca40a57582a1e981cfa,
     type: 2}
 --- !u!4 &2146815690
 Transform:

@@ -9,13 +9,15 @@ public class MenuManager : MonoBehaviour {
     public MenuMode mode;
 
     //Main
-    public MainMenu MainMenuPrefeb;
-    public LoadMenu LoadMenuPrefeb;
-    public NewGameMenu NewGameMenuPrefeb;
+    public MainMenu MainMenuprefab;
+    public LoadMenu LoadMenuprefab;
+    public NewGameMenu NewGameMenuprefab;
 
     //Game
-    public PlayerMenu PlayerMenuPrefeb;
-    public SystemMenu SystemMenuPrefeb;
+    public PlayerMenu PlayerMenuprefab;
+    public GearInvenMenu GearInvenMenuprefab;
+    public MailMenu MailMenuprefab;
+    public SystemMenu SystemMenuprefab;
 
     public Stack<Menu> menuStack = new Stack<Menu>();
 
@@ -47,8 +49,8 @@ public class MenuManager : MonoBehaviour {
 
     public void OpenMenu<T>() where T : Menu
     {
-        var prefeb = GetPreFeb<T>();
-        var instance = Instantiate<Menu>(prefeb,transform);
+        var prefab = Getprefab<T>();
+        var instance = Instantiate<Menu>(prefab,transform);
 
         //top 메뉴를 deactivate한다.
         if (menuStack.Count > 0)
@@ -67,26 +69,32 @@ public class MenuManager : MonoBehaviour {
             menuStack.Peek().gameObject.SetActive(true);
     }
 
-    public T GetPreFeb<T>() where T : Menu
+    public T Getprefab<T>() where T : Menu
     {
         //Main
         if (typeof(T) == typeof(MainMenu))
-            return MainMenuPrefeb as T;
+            return MainMenuprefab as T;
 
-        if (typeof(T) == typeof(LoadMenu))
-            return LoadMenuPrefeb as T;
+        else if (typeof(T) == typeof(LoadMenu))
+            return LoadMenuprefab as T;
 
-        if(typeof(T) == typeof(NewGameMenu))
-            return NewGameMenuPrefeb as T;
+        else if(typeof(T) == typeof(NewGameMenu))
+            return NewGameMenuprefab as T;
 
         //Game
-        if (typeof(T) == typeof(PlayerMenu))
-            return PlayerMenuPrefeb as T;
+        else if(typeof(T) == typeof(PlayerMenu))
+            return PlayerMenuprefab as T;
 
-        if (typeof(T) == typeof(SystemMenu))
-            return SystemMenuPrefeb as T;
+        else if(typeof(T) == typeof(GearInvenMenu))
+            return GearInvenMenuprefab as T;
 
-        //타입이 prefeb에 없는거면 Excpetion 반환
+        else if(typeof(T) == typeof(MailMenu))
+            return MailMenuprefab as T;
+
+        else if(typeof(T) == typeof(SystemMenu))
+            return SystemMenuprefab as T;
+
+        //타입이 prefab에 없는거면 Excpetion 반환
         throw new MissingReferenceException();
     }
 }
