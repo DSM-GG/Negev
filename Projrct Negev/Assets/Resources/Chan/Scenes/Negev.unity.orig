@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -417,9 +417,13 @@ GameObject:
   - component: {fileID: 827669282}
   - component: {fileID: 827669280}
   - component: {fileID: 827669281}
+<<<<<<< HEAD:Projrct Negev/Assets/Resources/Chan/Negev.unity
+  m_Layer: 8
+=======
   - component: {fileID: 827669283}
   - component: {fileID: 827669284}
   m_Layer: 10
+>>>>>>> UPLOAD: Combine Player and Enemy Bullet:Projrct Negev/Assets/Resources/Chan/Scenes/Negev.unity
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -507,9 +511,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 259db43e763bc264f9230ab9f11f2d15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD:Projrct Negev/Assets/Resources/Chan/Negev.unity
+  Cube: {fileID: 827669275}
+  mode: 0
+  playerCamera: {fileID: 0}
+=======
   Cube: {fileID: 0}
   mode: 1
   camera: {fileID: 0}
+>>>>>>> UPLOAD: Combine Player and Enemy Bullet:Projrct Negev/Assets/Resources/Chan/Scenes/Negev.unity
 --- !u!54 &827669281
 Rigidbody:
   m_ObjectHideFlags: 0
