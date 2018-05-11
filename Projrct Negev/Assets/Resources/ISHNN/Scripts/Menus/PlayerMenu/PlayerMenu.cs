@@ -16,6 +16,10 @@ public class PlayerMenu : Menu<PlayerMenu> {
         GearButton.onClick.AddListener(() => {
             GearInvenMenu.Open();
         });
+        MissionButton.onClick.AddListener(() =>
+        {
+            GameManager.Instance.ChangeScene("Negev");
+        });
         MailButton.onClick.AddListener(() => {
             MailListMenu.Open();
         });

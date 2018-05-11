@@ -14,8 +14,7 @@ public class MailListMenu : Menu<MailListMenu> {
         foreach (Mail m in DataManager.Current_Player.mailBox)
         {
             Mail _m = m;
-
-            Debug.Log("a");
+            
             Button mail = Instantiate(MailPrefeb, MailLayout.transform);
             Text mailText = mail.GetComponentInChildren<Text>();
             mailText.text = string.Format("{0} : {1}", _m.From, _m.Title);

@@ -41,14 +41,21 @@ public class PlayerData {
         }
 
         inventory = new GearInventory();
+
+        inventory.weapon_Primary = new ManualWeapon(001, "AWa");
+        inventory.weapon_Auto = new AutoWeapon(002, "BWa");
+        inventory.barrier = new Barrier(003, "B", 10, 30, Barrier.Type.Solid);
+
         mailBox = new List<Mail>();
+
+        mailBox.Add(DataManager.Instance.GetMail(this.player_name, "G"));
     }
 
     [System.Serializable]
     public struct GearInventory
     {
-        ManualWeapon weapon_Primary;
-        AutoWeapon weapon_Auto;
-        Barrier barrier;
+        public ManualWeapon weapon_Primary;
+        public AutoWeapon weapon_Auto;
+        public Barrier barrier;
     }
 }

@@ -17,7 +17,6 @@ public class SystemMenu : Menu<SystemMenu>
 
         SaveButton.onClick.AddListener(() => {
             DataManager.Instance.SaveData();
-            DataManager.Instance.LoadMail("Sample");
         });
         LoadlButton.onClick.AddListener(() => {
             LoadMenu.Open();

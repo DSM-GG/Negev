@@ -24,7 +24,6 @@ public class DataManager : MonoBehaviour {
     //플레이 중에 데이터 수정이 이루어지고, 저장시 대입되는 데이터이다.
     public static PlayerData Current_Player { get; private set; }
 
-
     //    X     프로필을 불러오는 로직에서 임시적으로 사용중이다. 이후에는 필요없음. // 플레이어 정보를 포멧에 맞추어 string으로 반환한다.
     public string LoadCurrentPlayerInfo()
     {
@@ -64,6 +63,8 @@ public class DataManager : MonoBehaviour {
     //Current_Player 를 {Current_Player . player_name}.data 파일에 저장한다.
     public void SaveData()
     {
+        LoadMail("Save");
+
         FileStream stream = new FileStream(string.Format("{0}/{1}.data", Application.persistentDataPath, Current_Player.player_name), FileMode.Create);
         PlayerData data = Current_Player;
 
@@ -96,5 +97,17 @@ public class DataManager : MonoBehaviour {
 
         Mail mail = new Mail(maildata[0], Current_Player.player_name ,maildata[1], maildata[2]);
         Current_Player.mailBox.Add(mail);
+    }
+
+    //p_name을 수신자로 한 메일을 리턴한다. 직접 MailBox에 추가할 떄 불러오는 메소드.
+    public Mail GetMail(string p_name, string mail_index)
+    {
+        FileStream stream = File.Open(string.Format("{0}/{1}.txt", Application.dataPath + "/Resources/Texts/Mails/", mail_index), FileMode.Open);
+        StreamReader sr = new StreamReader(stream, Encoding.Default);
+        string[] maildata = sr.ReadToEnd().Split('/');
+        stream.Close();
+
+        Mail mail = new Mail(maildata[0], p_name, maildata[1], maildata[2]);
+        return mail;
     }
 }
