@@ -3,13 +3,8 @@ using System.Collections.Generic;
 using Resources.Moreal.Scripts.Spells;
 using UnityEngine;
 
-public class CircleSpell : Spell
+public class CircleDanmak : Spell
 {
-	private void Start()
-	{
-		intervalTime = new WaitForSeconds(speed);
-	}
-
 	// Shooting Coroutine
 	protected override IEnumerator ActionSpell()
 	{

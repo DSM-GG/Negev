@@ -27,7 +27,9 @@ public class Bullet_Hell : MonoBehaviour {
         circleIntervalTime = new WaitForSeconds(1.0f / bulletCount);
         hurricaneIntervalTime = new WaitForSeconds(1.0f / bulletCount);
     }
-
+//
+//    protected delegate void onShootEvent;
+//    protected event onShootEvent onShot;
     private void Start()
     {
         StartCoroutine(CircleSpell());
