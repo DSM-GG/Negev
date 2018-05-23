@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Resources.Moreal.Scripts.Spells;
 using UnityEngine;
 
-public class HurricaneSpell : Spell {
+public class HurricaneDanmak : Spell {
 	
 	private void Start()
 	{
