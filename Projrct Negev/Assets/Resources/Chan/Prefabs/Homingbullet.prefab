@@ -24,8 +24,8 @@ GameObject:
   - component: {fileID: 23693946262975684}
   - component: {fileID: 114065268290217760}
   m_Layer: 8
-  m_Name: Bullet
-  m_TagString: Bullet
+  m_Name: Homingbullet
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,6 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MissileSpeed: 30
   DestroyMissileZpos: 18
+  Enemy: {fileID: 1243881508410102, guid: 582e283e36510f64cb7d115f90256073, type: 2}
 --- !u!135 &135870972664242738
 SphereCollider:
   m_ObjectHideFlags: 1

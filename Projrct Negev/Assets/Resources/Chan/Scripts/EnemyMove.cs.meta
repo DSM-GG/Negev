@@ -1,13 +1,11 @@
 fileFormatVersion: 2
-guid: c9746b53456169944bec999db9e3aca5
-timeCreated: 1523420820
+guid: 448d861c60494a8438fd1e31776ce30c
+timeCreated: 1526302996
 licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - NomalBullet: {fileID: 1758068135195506, guid: 4d6531b39f54926468662fe50177d875,
-      type: 2}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

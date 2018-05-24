@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bulletscript : MonoBehaviour {
     public float MissileSpeed = 30f;
     public float DestroyMissileZpos = 18f;
+    public GameObject Enemy = null;
 
 	// Use this for initialization
 	void Start () {
@@ -13,7 +14,15 @@ public class Bulletscript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        this.transform.Translate(new Vector3(0, 0, 1) * MissileSpeed * Time.deltaTime); 
+        if(Enemy != null)
+        {
+            Vector3 dir = Enemy.transform.position - transform.position;
+            this.transform.Translate(dir.normalized * MissileSpeed * Time.deltaTime);
+        }
+        else
+        {
+            transform.Translate(new Vector3(0, 0, 1) * MissileSpeed * Time.deltaTime);
+        }
 	}
 
     IEnumerator DeleteDelay(int sec)
