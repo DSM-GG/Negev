@@ -8,7 +8,6 @@ public enum Force : int { Mi = 0, Cr, Ki};
 public class PlayerData {
     //getset과 함께 접근을 제한하는게 좋을까
 
-
     //정보조회시 확인할 수 있는 데이터
     public Rank rank;
     public string player_name;
@@ -21,7 +20,9 @@ public class PlayerData {
     public float[] reliabilitys;
 
     //그 이외의 데이터
-    public GearInventory inventory;
+    public GearEquip equip;
+
+    public Dictionary<string,Gear> armory;
     public List<Mail> mailBox;
 
     public PlayerData(string p_name)
@@ -40,19 +41,28 @@ public class PlayerData {
             reliabilitys[i] = 0;
         }
 
-        inventory = new GearInventory();
+        armory = new Dictionary<string, Gear>
+        {
+            { "AWa" ,new ManualWeapon(001, "AWa") },
+            { "BWa" ,new AutoWeapon(002, "BWa") },
+            { "B" ,new Barrier(003, "B", 10, 30, Barrier.Type.Solid) },
+        };
 
-        inventory.weapon_Primary = new ManualWeapon(001, "AWa");
-        inventory.weapon_Auto = new AutoWeapon(002, "BWa");
-        inventory.barrier = new Barrier(003, "B", 10, 30, Barrier.Type.Solid);
+        mailBox = new List<Mail>
+        {
+            DataManager.Instance.GetMail(this.player_name, "G")
+        };
 
-        mailBox = new List<Mail>();
-
-        mailBox.Add(DataManager.Instance.GetMail(this.player_name, "G"));
+        equip = new GearEquip
+        {
+            weapon_Primary = (ManualWeapon)armory["AWa"],
+            weapon_Auto = (AutoWeapon)armory["BWa"],
+            barrier = (Barrier)armory["B"]
+        };
     }
 
     [System.Serializable]
-    public struct GearInventory
+    public struct GearEquip
     {
         public ManualWeapon weapon_Primary;
         public AutoWeapon weapon_Auto;
