@@ -21,8 +21,9 @@ GameObject:
   - component: {fileID: 4152014077754128}
   - component: {fileID: 33556212929154618}
   - component: {fileID: 135870972664242738}
+  - component: {fileID: 114072975888236584}
   - component: {fileID: 23693946262975684}
-  - component: {fileID: 114065268290217760}
+  - component: {fileID: 114338555000205370}
   m_Layer: 8
   m_Name: Homingbullet
   m_TagString: Player
@@ -84,7 +85,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1249004735921356}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114065268290217760
+--- !u!114 &114072975888236584
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -92,9 +93,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1249004735921356}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e368f7c811fd1d0499fba8882f401d44, type: 3}
+  m_Script: {fileID: 11500000, guid: e0bf3e2169103654db7d3f4d6213d1c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 4893922024999126, guid: 582e283e36510f64cb7d115f90256073, type: 2}
+  direction: {x: 0, y: 0, z: 0}
+  velocity: 0
+  accelaration: 0
+--- !u!114 &114338555000205370
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1249004735921356}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78279020ebe52774595646e4bef8efb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FireTime: 0.5
   MissileSpeed: 30
   DestroyMissileZpos: 18
   Enemy: {fileID: 1243881508410102, guid: 582e283e36510f64cb7d115f90256073, type: 2}
@@ -105,7 +122,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1249004735921356}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5

@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4385464844126162}
   - component: {fileID: 33128613845593382}
   - component: {fileID: 135307410093604172}
+  - component: {fileID: 114548887485737974}
   - component: {fileID: 23106608816951594}
-  - component: {fileID: 114074175098633542}
   m_Layer: 0
   m_Name: Nomalbullet
   m_TagString: Untagged
@@ -84,7 +84,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1758068135195506}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114074175098633542
+--- !u!114 &114548887485737974
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -95,9 +95,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e368f7c811fd1d0499fba8882f401d44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FireTime: 0.5
   MissileSpeed: 30
   DestroyMissileZpos: 18
-  Enemy: {fileID: 0}
+  Enemy: {fileID: 1243881508410102, guid: 582e283e36510f64cb7d115f90256073, type: 2}
 --- !u!135 &135307410093604172
 SphereCollider:
   m_ObjectHideFlags: 1
