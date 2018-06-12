@@ -1,0 +1,29 @@
+{
+  "no": 0,
+  "kind": 1,
+  "area": "Area",
+  "commands": [
+    {
+      "dialogs": [
+        {
+          "name": "CP",
+          "content": "Test, Test"
+        },
+        {
+          "name": "CP",
+          "content": "한국어다."
+        }
+      ],
+      "time": 5.0,
+      "kind": 1
+    },
+
+    {
+      "enemies": [
+        { "name": "e" },
+        { "name": "a" }
+      ],
+      "time": 5.0,
+      "kind": 0
+    }
+  ]}

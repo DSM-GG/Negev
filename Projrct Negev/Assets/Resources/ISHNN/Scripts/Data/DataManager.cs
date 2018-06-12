@@ -5,6 +5,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using UnityEngine;
+using Newtonsoft.Json;
 
 public class DataManager : MonoBehaviour {
 
@@ -20,6 +21,45 @@ public class DataManager : MonoBehaviour {
         DontDestroyOnLoad(this.gameObject);
     }
 
+    #region MapData / Json
+
+    //Json Smaple을 생성하기 위한 함수이다.
+    /*
+    public void Create_StageData_JsonSample()
+    {
+        StageData stage = new StageData(0, StageKind.Boss, "Area",
+            new List<Command> {
+                new DialogCommand(5,CommandKind.Dialog, new List<Dialog>{
+                    new Dialog("CP", "Test, Test"),
+                    new Dialog("CP", "한국어다.")
+                }),
+                new SpawnCommand(5,CommandKind.Enemy, new List<Enemy>{
+                    new Enemy("e"),
+                    new Enemy("a")
+                })
+            });
+
+        using (StreamWriter file = File.CreateText(string.Format("Assets/Resources/Datas/StageDatas/Stage_{0}", stage.no)))
+        {
+            JsonSerializer serializer = new JsonSerializer();
+            serializer.Serialize(file, stage);
+        }
+    }
+    */
+
+    public StageData GetStageData(int stage_no)
+    {
+        using (StreamReader file = File.OpenText(string.Format("Assets/Resources/Datas/StageDatas/Stage_{0}", stage_no)))
+        {
+            JsonSerializer serializer = new JsonSerializer();
+            StageData stage = (StageData)serializer.Deserialize(file, typeof(StageData));
+            return stage;
+        }
+    }
+
+    #endregion MapData
+
+    #region PlayerData
     //현재 이용중인 플레이어 데이터
     //플레이 중에 데이터 수정이 이루어지고, 저장시 대입되는 데이터이다.
     public static PlayerData Current_Player { get; private set; }
@@ -85,7 +125,10 @@ public class DataManager : MonoBehaviour {
 
         stream.Close();
     }
+    #endregion PlayerData
 
+    //MailData 는 Json으로 바꾸자.
+    #region MailData
     //메일 인덱스로 사전에 등록된 메일을 Current_Player에 추가한다.
     //지금은 txt 형태를 참조.
     public void LoadMail(string mail_index)
@@ -109,5 +152,11 @@ public class DataManager : MonoBehaviour {
 
         Mail mail = new Mail(maildata[0], p_name, maildata[1], maildata[2]);
         return mail;
+    }
+    #endregion MailData
+
+    public void LoadStageData()
+    {
+
     }
 }
