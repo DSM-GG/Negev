@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
 using UnityEngine;
 using Newtonsoft.Json;
 
@@ -21,15 +18,19 @@ public class DataManager : MonoBehaviour {
         DontDestroyOnLoad(this.gameObject);
 
         //Create_StageData_JsonSample();
-        Create_Mail_JsonSample();
+        //Create_Mail_JsonSample();
     }
 
-    #region StageData / Json
+    #region StageData
 
     //Json Smaple을 생성하기 위한 함수이다.
     public void Create_StageData_JsonSample()
     {
-        StageData stage = new StageData(0, StageKind.Boss, "Area",
+        StageData stage = new StageData(
+            new Mission("관할구 점거집단 무력화", "A사", "매번 생각하는 거지만 누가 대신 써주면 얼마나 좋을까..", 80000, 30000, 0),
+            
+            0, StageKind.Boss, "Area",
+
             new List<Command> {
                 new DialogCommand(5,CommandKind.Dialog, new List<Dialog>{
                     new Dialog("CP", "Test, Test"),
@@ -127,8 +128,7 @@ public class DataManager : MonoBehaviour {
         stream.Close();
     }
     #endregion PlayerData
-
-    //MailData 는 Json으로 바꾸자.
+    
     #region MailData
     public void Create_Mail_JsonSample()
     {

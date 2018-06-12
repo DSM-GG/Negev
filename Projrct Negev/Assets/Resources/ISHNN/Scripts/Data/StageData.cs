@@ -1,18 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
 
 public enum StageKind { Distroy, Boss }
 public enum CommandKind { Enemy, Dialog }
 
 public class StageData{
+    public Mission mission;
     public int no;
     public StageKind kind;
     public string area;
     public List<Command> commands = new List<Command>();
 
-    public StageData(int stage_no, StageKind stage_kind, string area, List<Command> commands)
+    public StageData(Mission mission, int stage_no, StageKind stage_kind, string area, List<Command> commands)
     {
+        this.mission = mission;
         this.no = stage_no;
         this.kind = stage_kind;
         this.area = area;

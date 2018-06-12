@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 public enum Rank : int { A = 0, B, C, D, E};
 public enum Force : int { Mi = 0, Cr, Ki};

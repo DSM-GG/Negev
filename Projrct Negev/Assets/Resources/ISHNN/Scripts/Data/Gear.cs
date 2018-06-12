@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System;
-
-[Serializable]
+﻿[System.Serializable]
 public class Gear {
     public readonly int number;
     public readonly string name;
@@ -14,7 +10,7 @@ public class Gear {
     }
 }
 
-[Serializable]
+[System.Serializable]
 public class Barrier : Gear
 {
     public enum Type { Energy, Solid };
@@ -30,7 +26,7 @@ public class Barrier : Gear
     }
 }
 
-[Serializable]
+[System.Serializable]
 public class Weapon : Gear
 {
     public readonly float ATK;
@@ -41,7 +37,7 @@ public class Weapon : Gear
     }
 }
 
-[Serializable]
+[System.Serializable]
 public class AutoWeapon : Weapon
 {
     enum Type { Guided, Unguided };
@@ -51,7 +47,7 @@ public class AutoWeapon : Weapon
     }
 }
 
-[Serializable]
+[System.Serializable]
 public class ManualWeapon : Weapon
 {
     enum Type { FireArm, Boom, LockOn };
