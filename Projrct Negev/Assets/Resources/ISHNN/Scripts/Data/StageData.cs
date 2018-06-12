@@ -42,8 +42,8 @@ public class DialogCommand : Command {
 
 public class SpawnCommand : Command
 {
-    public List<Enemy> enemies;
-    public SpawnCommand(float time, CommandKind kind, List<Enemy> enemies) : base(time, kind)
+    public List<TempEnemy> enemies;
+    public SpawnCommand(float time, CommandKind kind, List<TempEnemy> enemies) : base(time, kind)
     {
         this.enemies = enemies;
     }
@@ -62,10 +62,10 @@ public struct Dialog
 }
 
 //임시로 사용하는 클래스로, 추후 Enemy가 완전히 구현 되면 수정.
-public struct Enemy
+public struct TempEnemy
 {
     public string name;
-    public Enemy(string name)
+    public TempEnemy(string name)
     {
         this.name = name;
     }

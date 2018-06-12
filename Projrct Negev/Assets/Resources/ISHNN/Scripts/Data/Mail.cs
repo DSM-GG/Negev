@@ -9,10 +9,9 @@ public class Mail{
     public string Title;
     public string Content;
 
-    public Mail(string from, string to, string subject, string content)
+    public Mail(string from, string subject, string content)
     {
         From = from;
-        To = to;
         Title = subject;
         Content = content;
     }

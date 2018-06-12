@@ -19,12 +19,14 @@ public class DataManager : MonoBehaviour {
             Destroy(gameObject);
 
         DontDestroyOnLoad(this.gameObject);
+
+        //Create_StageData_JsonSample();
+        Create_Mail_JsonSample();
     }
 
-    #region MapData / Json
+    #region StageData / Json
 
     //Json Smaple을 생성하기 위한 함수이다.
-    /*
     public void Create_StageData_JsonSample()
     {
         StageData stage = new StageData(0, StageKind.Boss, "Area",
@@ -33,9 +35,9 @@ public class DataManager : MonoBehaviour {
                     new Dialog("CP", "Test, Test"),
                     new Dialog("CP", "한국어다.")
                 }),
-                new SpawnCommand(5,CommandKind.Enemy, new List<Enemy>{
-                    new Enemy("e"),
-                    new Enemy("a")
+                new SpawnCommand(5,CommandKind.Enemy, new List<TempEnemy>{
+                    new TempEnemy("e"),
+                    new TempEnemy("a")
                 })
             });
 
@@ -45,9 +47,8 @@ public class DataManager : MonoBehaviour {
             serializer.Serialize(file, stage);
         }
     }
-    */
 
-    public StageData GetStageData(int stage_no)
+    public StageData LoadStageData(int stage_no)
     {
         using (StreamReader file = File.OpenText(string.Format("Assets/Resources/Datas/StageDatas/Stage_{0}", stage_no)))
         {
@@ -57,7 +58,7 @@ public class DataManager : MonoBehaviour {
         }
     }
 
-    #endregion MapData
+    #endregion StageData
 
     #region PlayerData
     //현재 이용중인 플레이어 데이터
@@ -129,10 +130,34 @@ public class DataManager : MonoBehaviour {
 
     //MailData 는 Json으로 바꾸자.
     #region MailData
+    public void Create_Mail_JsonSample()
+    {
+        Mail mail = new Mail("모회사", "신규 등록", "E랭크 직업이름뭘로하지로 등록 되었습니다.\n아 이런거 누가 대신 좀 써줘..축하하는 메일 좀 보내줘");
+        Mail mail_2 = new Mail("Manager", "저장완료", "데이터 업데이트가 완료되었습니다. 이건 왜 메일로... *(테스트용입니다.)");
+
+        using (StreamWriter file = File.CreateText(string.Format("Assets/Resources/Texts/Mails/{0}", "G")))
+        {
+            JsonSerializer serializer = new JsonSerializer();
+            serializer.Serialize(file, mail);
+        }
+        using (StreamWriter file = File.CreateText(string.Format("Assets/Resources/Texts/Mails/{0}", "Save")))
+        {
+            JsonSerializer serializer = new JsonSerializer();
+            serializer.Serialize(file, mail_2);
+        }
+    }
+
     //메일 인덱스로 사전에 등록된 메일을 Current_Player에 추가한다.
-    //지금은 txt 형태를 참조.
     public void LoadMail(string mail_index)
     {
+        using (StreamReader file = File.OpenText(string.Format("Assets/Resources/Texts/Mails/{0}", mail_index)))
+        {
+            JsonSerializer serializer = new JsonSerializer();
+            Mail mail = (Mail)serializer.Deserialize(file, typeof(Mail));
+            mail.To = Current_Player.player_name;
+            Current_Player.mailBox.Add(mail);
+        }
+        /*
         FileStream stream = File.Open(string.Format("{0}/{1}.txt", Application.dataPath + "/Resources/Texts/Mails/", mail_index), FileMode.Open);
         StreamReader sr = new StreamReader(stream, Encoding.Default);
         string[] maildata = sr.ReadToEnd().Split('/');
@@ -140,11 +165,20 @@ public class DataManager : MonoBehaviour {
 
         Mail mail = new Mail(maildata[0], Current_Player.player_name ,maildata[1], maildata[2]);
         Current_Player.mailBox.Add(mail);
+        */
     }
 
     //p_name을 수신자로 한 메일을 리턴한다. 직접 MailBox에 추가할 떄 불러오는 메소드.
     public Mail GetMail(string p_name, string mail_index)
     {
+        using (StreamReader file = File.OpenText(string.Format("Assets/Resources/Texts/Mails/{0}", mail_index)))
+        {
+            JsonSerializer serializer = new JsonSerializer();
+            Mail mail = (Mail)serializer.Deserialize(file, typeof(Mail));
+            mail.To = p_name;
+            return mail;
+        }
+        /*
         FileStream stream = File.Open(string.Format("{0}/{1}.txt", Application.dataPath + "/Resources/Texts/Mails/", mail_index), FileMode.Open);
         StreamReader sr = new StreamReader(stream, Encoding.Default);
         string[] maildata = sr.ReadToEnd().Split('/');
@@ -152,11 +186,7 @@ public class DataManager : MonoBehaviour {
 
         Mail mail = new Mail(maildata[0], p_name, maildata[1], maildata[2]);
         return mail;
+        */
     }
     #endregion MailData
-
-    public void LoadStageData()
-    {
-
-    }
 }
