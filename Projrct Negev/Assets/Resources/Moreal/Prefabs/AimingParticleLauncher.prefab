@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4758415706329858}
   - component: {fileID: 198504164748609556}
   - component: {fileID: 114483690665741144}
+  - component: {fileID: 114242972202094930}
   - component: {fileID: 199037845343303264}
   m_Layer: 0
   m_Name: AimingParticleLauncher
@@ -42,6 +43,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -131.271, y: 0, z: 0}
+--- !u!114 &114242972202094930
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1624524417382528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b29c61c2c1f85f942895071b95b0f55c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleDamage: 0
 --- !u!114 &114483690665741144
 MonoBehaviour:
   m_ObjectHideFlags: 1

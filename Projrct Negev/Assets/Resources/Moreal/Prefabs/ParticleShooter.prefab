@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 198672625995154652}
   - component: {fileID: 199972259006470764}
   - component: {fileID: 65777319748295976}
+  - component: {fileID: 114174447287950302}
   m_Layer: 8
   m_Name: ParticleShooter
   m_TagString: Bullet
@@ -54,6 +55,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10.936571, y: 10.860282, z: 1.4200032}
   m_Center: {x: 0.0539999, y: 0.047786724, z: -0.0000019073486}
+--- !u!114 &114174447287950302
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1399711981591546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b29c61c2c1f85f942895071b95b0f55c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleDamage: 0
 --- !u!198 &198672625995154652
 ParticleSystem:
   m_ObjectHideFlags: 1
