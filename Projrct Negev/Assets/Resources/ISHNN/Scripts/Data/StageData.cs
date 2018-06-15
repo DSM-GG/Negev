@@ -1,9 +1,12 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
-public enum StageKind { Distroy, Boss }
+public enum StageKind { Destroy, Boss }
 public enum CommandKind { Enemy, Dialog }
 
 public class StageData{
+    public int targetamount = 20;
+    public float stagetime = 60.0f;
     public Mission mission;
     public int no;
     public StageKind kind;
@@ -64,9 +67,12 @@ public struct Dialog
 //임시로 사용하는 클래스로, 추후 Enemy가 완전히 구현 되면 수정.
 public struct TempEnemy
 {
+    //public Vector3 position;
     public string name;
-    public TempEnemy(string name)
+
+    public TempEnemy(/*Vector3 position,*/ string name)
     {
+        //this.position = position;
         this.name = name;
     }
 }

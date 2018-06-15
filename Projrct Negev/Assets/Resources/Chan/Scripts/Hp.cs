@@ -44,6 +44,7 @@ public class Hp : MonoBehaviour {
     void Update () {
 		
 	}
+
     private void OnTriggerEnter(Collider col) 
     {
         if (col.tag == "Bullet")
