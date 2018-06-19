@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Github\DSM-GG\Negev\Projrct Negev" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="DownloadedAssets" t="Include">
+          <e p="SMC Pack 1" t="Include">
+            <e p="Demo" t="Include">
+              <e p="DemoAssets" t="Include">
+                <e p="V_SMC_Camera.cs" t="Include" />
+                <e p="V_SMC_Handler.cs" t="Include" />
+                <e p="V_Text.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
+        <e p="Resources" t="Include">
+          <e p="Chan" t="Include">
+            <e p="scripts" t="Include">
+              <e p="Bulletscript.cs" t="Include" />
+              <e p="CameraManager.cs" t="Include" />
+              <e p="ChangeCharMove.cs" t="Include" />
+              <e p="Characterfire.cs" t="Include" />
+              <e p="Enemy.cs" t="Include" />
+              <e p="EnemyMove.cs" t="Include" />
+              <e p="Homing1.cs" t="Include" />
+              <e p="Homingscirpt.cs" t="Include" />
+              <e p="Hp.cs" t="Include" />
+              <e p="Timeattack.cs" t="Include" />
+              <e p="Wall.cs" t="Include" />
+              <e p="Waypoint.cs" t="Include" />
+            </e>
+          </e>
+          <e p="ISHNN" t="Include">
+            <e p="scripts" t="Include">
+              <e p="Data" t="Include">
+                <e p="DataManager.cs" t="Include" />
+                <e p="ForceData.cs" t="Include" />
+                <e p="Gear.cs" t="Include" />
+                <e p="Mail.cs" t="Include" />
+                <e p="PlayerData.cs" t="Include" />
+              </e>
+              <e p="GameManager.cs" t="Include" />
+              <e p="Menus" t="Include">
+                <e p="MainMenu" t="Include">
+                  <e p="LoadMenu.cs" t="Include" />
+                  <e p="MainMenu.cs" t="Include" />
+                  <e p="NewGameMenu.cs" t="Include" />
+                </e>
+                <e p="PlayerMenu" t="Include">
+                  <e p="GearInvenMenu.cs" t="Include" />
+                  <e p="MailListMenu.cs" t="Include" />
+                  <e p="MailMenu.cs" t="Include" />
+                  <e p="PlayerMenu.cs" t="Include" />
+                  <e p="SystemMenu.cs" t="Include" />
+                </e>
+              </e>
+              <e p="MenuSystem" t="Include">
+                <e p="Menu.cs" t="Include" />
+                <e p="MenuManager.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="Moreal" t="Include">
+            <e p="scripts" t="Include">
+              <e p="Bullet" t="Include">
+                <e p="CircleDanmak.cs" t="Include" />
+                <e p="HurricaneDanmak.cs" t="Include" />
+                <e p="Spell.cs" t="Include" />
+              </e>
+              <e p="Bullet_Hell.cs" t="Include" />
+              <e p="Bullet_Instance.cs" t="Include" />
+              <e p="Shooter" t="Include">
+                <e p="AimingParticle.cs" t="Include" />
+                <e p="ParticleDamage.cs" t="Include" />
+                <e p="ParticleLauncher.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="Texts" t="Include">
+            <e p="Mails" t="Include">
+              <e p="G.txt" t="Include" />
+              <e p="Save.txt" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Projrct Negev.sln" t="IncludeFlat" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+    </e>
+    <e p="C:\Users\Moreal\.Rider2018.1\system\resharper-host\local\Transient\ReSharperHost\v12\SolutionCaches\_Projrct Negev.-1043621672.00" t="ExcludeRecursive" />
+  </component>
+</project>
