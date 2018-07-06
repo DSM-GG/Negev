@@ -13,7 +13,7 @@ public class ChangeCharMove : MonoBehaviour
 
     public enum MoveMode { Side = 0, TopBack };
     public MoveMode mode;
-    public Camera camera;
+    public Camera Cam;
 
     // Use this for initialization
     void Start()

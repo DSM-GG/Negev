@@ -17,8 +17,8 @@ public class DataManager : MonoBehaviour {
 
         DontDestroyOnLoad(this.gameObject);
 
-        Create_StageData_JsonSample();
-        Create_Mail_JsonSample();
+        //Create_StageData_JsonSample();
+        //Create_Mail_JsonSample();
     }
 
     #region StageData
@@ -54,8 +54,18 @@ public class DataManager : MonoBehaviour {
         using (StreamReader file = File.OpenText(string.Format("Assets/Resources/Datas/StageDatas/Stage_{0}", stage_no)))
         {
             JsonSerializer serializer = new JsonSerializer();
-            StageData stage = (StageData)serializer.Deserialize(file, typeof(StageData));
+            StageData stage = serializer.Deserialize(file, typeof(StageData)) as StageData;
             return stage;
+        }
+    }
+
+    public void saveResave()
+    {
+        var stage = LoadStageData(0);
+        using (StreamWriter file = File.CreateText(string.Format("Assets/Resources/Datas/StageDatas/Stage_{0}_test", stage.no)))
+        {
+            JsonSerializer serializer = new JsonSerializer();
+            serializer.Serialize(file, stage);
         }
     }
 

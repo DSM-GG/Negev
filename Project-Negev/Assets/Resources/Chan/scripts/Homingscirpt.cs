@@ -3,14 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Homingscirpt : Bulletscript {
-
-	// Use this for initialization
-	void Start () {
-        base.Start();
-	}
-	
 	// Update is called once per frame
-	void Update () {
+	override protected void Update () {
         base.Update();
         Homingtarget();
         if (Enemy != null)

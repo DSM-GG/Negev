@@ -18,7 +18,7 @@ public class Bulletscript : MonoBehaviour
     }
 
     // Update is called once per frame
-    protected void Update()
+    protected virtual void Update()
     {
         transform.Translate(new Vector3(0, 0, 1) * MissileSpeed * Time.deltaTime);
     }
