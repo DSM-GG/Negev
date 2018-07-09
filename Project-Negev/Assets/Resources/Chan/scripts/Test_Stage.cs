@@ -11,7 +11,8 @@ public class Test_Stage : MonoBehaviour {
 	// Use this for initialization
     IEnumerator Stage()
     {
-        List<Command> commands = CurrentStageData.commands;
+        List<Command> commands = new List<Command>();
+        //List<Command> commands = CurrentStageData.commands;
         while (commands.Count != 0)
         {
             timer += Time.deltaTime;

@@ -10,6 +10,7 @@ public class StageManager : MonoBehaviour {
 
     //현재 불러온 스테이지
     StageData current_Stage;
+    List<Command> commands;
 
 	// Use this for initialization
 	void Start () {
@@ -24,6 +25,17 @@ public class StageManager : MonoBehaviour {
     void InitMap()
     {
         killedenemy = 0;
+        commands = new List<Command>();
+
+        foreach(Command com in current_Stage.dialogCommands)
+        {
+            commands.Add(com);
+        }
+        foreach (Command com in current_Stage.spawnCommands)
+        {
+            commands.Add(com);
+        }
+        commands.Sort();
     }
 
     IEnumerator Routine()
@@ -34,6 +46,7 @@ public class StageManager : MonoBehaviour {
             //시간 업데이트
             time += Time.deltaTime;
             //커맨드 처리
+            /*
             if (time >= current_Stage.commands[i].time)
             {
                 switch (current_Stage.commands[i].kind)
@@ -51,6 +64,7 @@ public class StageManager : MonoBehaviour {
                 }
                 i++;
             }
+            */
             //종료 조건 검사
             if(current_Stage.kind == StageKind.Destroy)
             {

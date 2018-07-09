@@ -7,19 +7,25 @@ public enum CommandKind { Enemy, Dialog }
 public class StageData{
     public int targetamount = 20;
     public float stagetime = 60.0f;
+
     public Mission mission;
     public int no;
     public StageKind kind;
     public string area;
-    public List<Command> commands = new List<Command>();
+    public List<DialogCommand> dialogCommands = new List<DialogCommand>();
+    public List<SpawnCommand> spawnCommands = new List<SpawnCommand>();
 
-    public StageData(Mission mission, int stage_no, StageKind stage_kind, string area, List<Command> commands)
+    public StageData(int targetamount, float stagetime, Mission mission, int no, StageKind kind, string area,
+        List<DialogCommand> dialogCommands, List<SpawnCommand> spawnCommands)
     {
+        this.targetamount = targetamount;
+        this.stagetime = stagetime;
         this.mission = mission;
-        this.no = stage_no;
-        this.kind = stage_kind;
+        this.no = no;
+        this.kind = kind;
         this.area = area;
-        this.commands = commands;
+        this.dialogCommands = dialogCommands;
+        this.spawnCommands = spawnCommands;
     }
 }
 

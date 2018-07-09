@@ -27,20 +27,34 @@ public class DataManager : MonoBehaviour {
     public void Create_StageData_JsonSample()
     {
         StageData stage = new StageData(
+            20,// 목표 수
+            60,// 스테이지 시간
             new Mission("관할구 점거집단 무력화", "A사", "매번 생각하는 거지만 누가 대신 써주면 얼마나 좋을까..", 80000, 30000, 0),
             
             0, StageKind.Boss, "Area",
 
-            new List<Command> {
-                new DialogCommand(5,CommandKind.Dialog, new List<Dialog>{
+            new List<DialogCommand> {
+                new DialogCommand(2,CommandKind.Dialog, new List<Dialog>{
                     new Dialog("CP", "Test, Test"),
+                    new Dialog("CP", "English.")
+                }),
+                new DialogCommand(5,CommandKind.Dialog, new List<Dialog>{
+                    new Dialog("CP", "테스트, 테스트"),
                     new Dialog("CP", "한국어다.")
                 }),
-                new SpawnCommand(5,CommandKind.Enemy, new List<TempEnemy>{
+            },
+
+            new List<SpawnCommand> {
+                new SpawnCommand(1,CommandKind.Enemy, new List<TempEnemy>{
+                    new TempEnemy("e"),
+                    new TempEnemy("a")
+                }),
+                new SpawnCommand(6,CommandKind.Enemy, new List<TempEnemy>{
                     new TempEnemy("e"),
                     new TempEnemy("a")
                 })
-            });
+            }
+            );
 
         using (StreamWriter file = File.CreateText(string.Format("Assets/Resources/Datas/StageDatas/Stage_{0}", stage.no)))
         {
