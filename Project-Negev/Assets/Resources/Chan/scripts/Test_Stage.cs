@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Test_Stage : MonoBehaviour {
@@ -7,12 +8,15 @@ public class Test_Stage : MonoBehaviour {
     public float timer = 0f;
     public GameObject Enemy;
     bool Spawn_bool;
-
-	// Use this for initialization
+    
     IEnumerator Stage()
     {
         List<Command> commands = new List<Command>();
-        //List<Command> commands = CurrentStageData.commands;
+        commands.AddRange(CurrentStageData.dialogCommands.Cast<Command>());
+        commands.AddRange(CurrentStageData.spawnCommands.Cast<Command>());
+
+        //commands.Sort();
+
         while (commands.Count != 0)
         {
             timer += Time.deltaTime;
@@ -21,13 +25,14 @@ public class Test_Stage : MonoBehaviour {
                 switch (commands[0].kind) {
                     case CommandKind.Dialog:
                         {
-
+                            DialogCommand command = commands[0] as DialogCommand;
+                            Debug.Log(command);
                             break;
                         }
                     case CommandKind.Enemy:
                         {
-                            //SpawnCommand command = commands[0] as SpawnCommand;
-                            //Debug.Log(command);
+                            SpawnCommand command = commands[0] as SpawnCommand;
+                            Debug.Log(command);
                             break;
                         }
                 }
@@ -53,6 +58,9 @@ public class Test_Stage : MonoBehaviour {
             );
             */
         Debug.Log(CurrentStageData.area);
+        Debug.Log(CurrentStageData.dialogCommands);
+        Debug.Log(CurrentStageData.spawnCommands);
+
         StartCoroutine(Stage());
     }
 }

@@ -17,7 +17,7 @@ public class DataManager : MonoBehaviour {
 
         DontDestroyOnLoad(this.gameObject);
 
-        //Create_StageData_JsonSample();
+        Create_StageData_JsonSample();
         //Create_Mail_JsonSample();
     }
 
