@@ -17,9 +17,9 @@ public class DialogUI : Menu<DialogUI> {
         Time.timeScale = 0;
     }
 
-    public void SetDIalog(string dialog_name)
+    public void SetDIalog(List<Dialog> dialogs)
     {
-        dialogs = DialogManager.ReadDialog(dialog_name);
+        this.dialogs = dialogs;
         d_name.text = dialogs[0].name;
         d_script.text = dialogs[0].content;
     }
@@ -31,7 +31,7 @@ public class DialogUI : Menu<DialogUI> {
             Debug.Log("stop");
             count = 1;
             Time.timeScale = 1;
-            MenuManager.Instance.CloseMenu();
+            Destroy(this.gameObject);
         }
         else
         {

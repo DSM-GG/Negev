@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class StageManager : MonoBehaviour {
+    [SerializeField] private DialogUI DialogUIPrefab;
+
     public Text Dialog;
     public static StageManager Instance;
     static StageData CurrentStageData;
@@ -44,14 +46,16 @@ public class StageManager : MonoBehaviour {
                     case CommandKind.Dialog:
                         {
                             DialogCommand command = commands[0] as DialogCommand;
-                            Debug.Log(command.dialogs[0]);
+                            Instantiate(DialogUIPrefab);
+
+                            DialogUI.Instance.SetDIalog(command.dialogs);
+
                             Dialog.text = "" + command.dialogs[0].name;
                             break;
                         }
                     case CommandKind.Enemy:
                         {
                             SpawnCommand command = commands[0] as SpawnCommand;
-                            Debug.Log(command.enemies[0].name);
                             GameObject enemyPrefab = prefab.GetEnemy(command.enemies[0].name);
                             try
                             {
