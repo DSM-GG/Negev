@@ -17,7 +17,7 @@ public class DataManager : MonoBehaviour {
 
         DontDestroyOnLoad(this.gameObject);
 
-        //Create_StageData_JsonSample();
+        Create_StageData_JsonSample();
         //Create_Mail_JsonSample();
     }
 
@@ -46,12 +46,12 @@ public class DataManager : MonoBehaviour {
 
             new List<SpawnCommand> {
                 new SpawnCommand(1,CommandKind.Enemy, new List<TempEnemy>{
-                    new TempEnemy("e"),
-                    new TempEnemy("a")
+                    new TempEnemy("Enemy"),
+                    new TempEnemy("Enemy")
                 }),
                 new SpawnCommand(6,CommandKind.Enemy, new List<TempEnemy>{
-                    new TempEnemy("e"),
-                    new TempEnemy("a")
+                    new TempEnemy("Enemy"),
+                    new TempEnemy("Enemy")
                 })
             }
             );
