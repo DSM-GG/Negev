@@ -3,8 +3,7 @@ using System.Collections;
 using UnityEditor;
 using UnityEngine;
 
-namespace Resources.Moreal.Scripts.Spells
-{
+
     public class Spell : MonoBehaviour
     {
         [SerializeField]
@@ -50,4 +49,3 @@ namespace Resources.Moreal.Scripts.Spells
             yield return null;
         }
     }
-}
