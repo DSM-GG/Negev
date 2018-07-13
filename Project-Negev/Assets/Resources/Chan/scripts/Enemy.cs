@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour {
     void Update () {
 		if (Enemyhp == 0)
         {
-            StageManager.killedenemy++;
+            StageManager.Instance.killedenemy++;
             Destroy(this);
         }
 	}

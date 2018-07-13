@@ -17,7 +17,7 @@ public class DataManager : MonoBehaviour {
 
         DontDestroyOnLoad(this.gameObject);
 
-        Create_StageData_JsonSample();
+        //Create_StageData_JsonSample();
         //Create_Mail_JsonSample();
     }
 
@@ -72,7 +72,7 @@ public class DataManager : MonoBehaviour {
             return stage;
         }
     }
-
+    /*
     public void saveResave()
     {
         var stage = LoadStageData(0);
@@ -82,6 +82,7 @@ public class DataManager : MonoBehaviour {
             serializer.Serialize(file, stage);
         }
     }
+    */
 
     #endregion StageData
 

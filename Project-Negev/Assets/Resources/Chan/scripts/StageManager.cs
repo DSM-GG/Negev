@@ -1,82 +1,69 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StageManager : MonoBehaviour {
-    //Prefeb 같은 거
-    public static int killedenemy;
-    //시간
-    float time;
+    public Text Dialog;
+    public static StageManager Instance;
+    static StageData CurrentStageData;
+    public float timer = 0f;
+    public GameObject Enemy;
+    bool Spawn_bool;
+    public int killedenemy = 0;
 
-    //현재 불러온 스테이지
-    StageData current_Stage;
-    List<Command> commands;
-
-	// Use this for initialization
-	void Start () {
-        current_Stage = DataManager.Instance.LoadStageData(0);
-        Debug.Log(current_Stage.no);
-
-        InitMap();
-        StartCoroutine("Routine");
-	}
-
-    //맵 불러오고 초기화
-    void InitMap()
+    void Awake()
     {
-        killedenemy = 0;
-        commands = new List<Command>();
-
-        foreach(Command com in current_Stage.dialogCommands)
-        {
-            commands.Add(com);
-        }
-        foreach (Command com in current_Stage.spawnCommands)
-        {
-            commands.Add(com);
-        }
-        commands.Sort();
+        Instance = this;
+    }
+	void Start () {
+        //DataManager.Instance.saveResave();
+        CurrentStageData = DataManager.Instance.LoadStageData(0);
+        StartCoroutine(Stage());
     }
 
-    IEnumerator Routine()
+    IEnumerator Stage()
     {
-        int i = 0;
-        while(true)
+        List<Command> commands = new List<Command>();
+
+        commands.AddRange(CurrentStageData.dialogCommands.Cast<Command>());
+        commands.AddRange(CurrentStageData.spawnCommands.Cast<Command>());
+
+        //commands.OrderBy(x => x.time);
+        commands.Sort((x, y) => x.time.CompareTo(y.time));
+
+        while (commands.Count != 0)
         {
-            //시간 업데이트
-            time += Time.deltaTime;
-            //커맨드 처리
-            /*
-            if (time >= current_Stage.commands[i].time)
+            timer += Time.deltaTime;
+            if (timer >= commands[0].time)
             {
-                switch (current_Stage.commands[i].kind)
+                switch (commands[0].kind)
                 {
                     case CommandKind.Dialog:
                         {
-                            Debug.Log("대화당");
+                            DialogCommand command = commands[0] as DialogCommand;
+                            Debug.Log(command.dialogs[0]);
+                            Dialog.text = "" + command.dialogs[0].name;
                             break;
                         }
                     case CommandKind.Enemy:
                         {
-                            Debug.Log("적이당");
+                            SpawnCommand command = commands[0] as SpawnCommand;
+                            Debug.Log(command.enemies[0].name);
+                            //GameObject.Instantiate(Object )
                             break;
                         }
                 }
-                i++;
+                commands.RemoveAt(0);
             }
-            */
-            //종료 조건 검사
-            if(current_Stage.kind == StageKind.Destroy)
-            {
-                if(time >= current_Stage.stagetime)
-                {
-                    //게임오버 (시간초과)
-                }
-                if(current_Stage.targetamount == killedenemy)
-                {
-                    //게임 클리어
-                }
-            }
+
+            /*Instantiate(Enemy, Vector3.zero, Quaternion.identity);
+            Spawn_bool = false;
+
+            //List<>*/
+            yield return new WaitForEndOfFrame();
         }
     }
+
 }
