@@ -9,13 +9,14 @@ public class StageManager : MonoBehaviour {
     public static StageManager Instance;
     static StageData CurrentStageData;
     public float timer = 0f;
-    public GameObject Enemy;
     bool Spawn_bool;
     public int killedenemy = 0;
+    private PrefabManager prefab;
 
     void Awake()
     {
         Instance = this;
+        prefab = GameObject.Find("DataManager").GetComponent<PrefabManager>();
     }
 	void Start () {
         //DataManager.Instance.saveResave();
@@ -51,6 +52,12 @@ public class StageManager : MonoBehaviour {
                         {
                             SpawnCommand command = commands[0] as SpawnCommand;
                             Debug.Log(command.enemies[0].name);
+                            GameObject enemyPrefab = prefab.GetEnemy(command.enemies[0].name);
+                            try
+                            {
+                                Instantiate(enemyPrefab, Vector3.zero, Quaternion.identity, transform);
+                            }
+                            catch { }
                             //GameObject.Instantiate(Object )
                             break;
                         }

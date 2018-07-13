@@ -10,11 +10,16 @@ public class PrefabManager : MonoBehaviour {
         foreach(GameObject Enemy in objects)
         {
            EnemyList.Add(Enemy.name, Enemy);
+           //Debug.Log(Enemy.name);
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    public GameObject GetEnemy(string enemy_name)
+    {
+        Debug.Log(enemy_name);
+        GameObject enemy;
+        EnemyList.TryGetValue(enemy_name, out enemy);
+
+        return enemy;
+    }
 }
